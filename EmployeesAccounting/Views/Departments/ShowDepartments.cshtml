@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmployeesAccounting.Models.Department>
+
+@{
+    ViewBag.Title = "ShowDepartments";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateDepartment")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfAdding)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateInfoChanging)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfAdding)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateInfoChanging)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditDepartment", new { id=item.DepartmentId }) |
+            @Html.ActionLink("Details", "DetailsOfDepartment", new { id=item.DepartmentId }) |
+            @Html.ActionLink("Delete", "DeleteDepartment", new { id=item.DepartmentId })
+        </td>
+    </tr>
+}
+
+</table>
